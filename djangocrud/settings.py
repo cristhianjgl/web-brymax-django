@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 #para cambiar a sql lite busca en la web la docu de dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres',
+        default='sqlite:///db.sqlite3',
         conn_max_age=600
     )
 }
