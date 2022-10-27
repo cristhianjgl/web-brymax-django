@@ -153,10 +153,10 @@ def prediction(request):
     else:
         try:
             clf = joblib.load('./model-ml/modelo_entrenado_xgboost.pkl')
-            print('clf', clf)
+            # print('clf', clf)
             # row = [6,148,72,35,0,33.6,0.627,50] #1
             # row = [1, 89, 66, 23, 94, 28.1, 0.167, 21] #0
-            print('embarazosn ', request.POST['numero_embarazos'])
+            # print('embarazosn ', request.POST['numero_embarazos'])
             row = [
                 int(request.POST['numero_embarazos']),
                 float(request.POST['glucuosa']),
