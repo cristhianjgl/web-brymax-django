@@ -2,6 +2,9 @@
 # exit on error
 set -o errexit
 
+#para generar requirements.txt
+#pip freeze > requirements.txt
+
 # poetry install
 pip install -r requirements.txt
 

@@ -1,5 +1,4 @@
 from django import forms
-from matplotlib import widgets
 from tasks.models import Task, Prediction
 
 class TaskForm(forms.ModelForm):
