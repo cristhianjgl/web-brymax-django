@@ -240,7 +240,7 @@ class PredictionView(View):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-
+    
     def get(self,request):
         predictions = list(Prediction.objects.values())
         if len(predictions)>0:
