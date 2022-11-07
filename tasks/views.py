@@ -287,4 +287,24 @@ class PredictionView(View):
         print("🚀 ~ file: views.py ~ line 286 ~ datos", datos)
         return JsonResponse(datos)
         
+class AccesoView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def post(self,request):
+        jd = json.loads(request.body)
+
+        user = authenticate(request, username=jd['username'], password=jd['password'])
+        print('user',user)
+        if user is None:
+            datos={'message':"Username or password incorrect",'user':user}
+        else:
+            userLogin = list(User.objects.filter(username=jd['username']).values())
+            # userLogin = get_object_or_404(User, username=jd['username'], password=jd['password'])
+            print(userLogin)
+            datos={'message':"Success",'user':userLogin}
+
+        return JsonResponse(datos)
+    
 
